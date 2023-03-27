@@ -140,11 +140,22 @@ b. Change the parameter for the script:
 c. Submit with the command:
 - `sbatch script`
 
+**Troubleshooting:**
+
+When run it as batch job, if in the slurm output you see error:
+
+Traceback (most recent call last):
+File "marco.py", line 1, in <module>
+from tensorflow.keras.callbacks import ReduceLROnPlateau,ModelCheckpoint
+ModuleNotFoundError: No module named 'tensorflow'
+
+Try conda deactivate and activate your environment again. Then submit your job.
+  
 d. Check your submitted job in the queue:
 - `squeue -u yourusername`
   - Change yourusername to your own user name
 
-e. You will find the model and weights following same way in `step3.h` . The output information will be saved in a file named `output`.
+e. You will find the model and weights following same way in **step3.h** . The output information will be saved in a file named `output`.
 
 ### Step 5: Evaluate the model.<a name="step5"></a>
 
