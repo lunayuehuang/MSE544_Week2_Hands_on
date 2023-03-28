@@ -81,18 +81,7 @@ a. Upload marcodata.tar.gz, marco.py to Hyak(should work under the directoryname
 
 b. Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see afolder named marcodata
 
-c. Configure the python environment by the following commands:
-
-- `module load foster/python/miniconda/3.8`
-  - This is to load the preinstalled anaconda on Hyak.
-- `conda create -n marco1 keras tensorflow scikit-learn pandas pillow`
-  - This is to create a python environment named marco1 with all needed python packages installed.
-- `conda init bash`
-  - You will need to initiate conda if this is your first time using it on Hyak.
-- `exec bash`
-  - Restart bash to enable conda initiation.
-  
-d. Get an interactive node on hyak:
+c. Get an interactive node on hyak:
 
 You can use command:
 - `srun -p compute -A stf --nodes=1 --ntasks-per-node=4 --time=2:00:00 --mem=100G --pty/bin/bash`
@@ -105,6 +94,19 @@ Alternatively, you can use command:
 This allows you to use idle resources from other groups across the cluster using the checkpoint partition.
 
 Additional resource about node setting: https://hyak.uw.edu/docs/compute/scheduling-jobs
+
+
+d. Configure the python environment by the following commands:
+
+- `module load foster/python/miniconda/3.8`
+  - This is to load the preinstalled anaconda on Hyak.
+- `conda create -n marco1 keras tensorflow scikit-learn pandas pillow`
+  - This is to create a python environment named marco1 with all needed python packages installed.
+- `conda init bash`
+  - You will need to initiate conda if this is your first time using it on Hyak.
+- `exec bash`
+  - Restart bash to enable conda initiation.
+  
 
 e. Set the number of threads can be run at same time:
 - `export OMP_NUM_THREADS=4` 
