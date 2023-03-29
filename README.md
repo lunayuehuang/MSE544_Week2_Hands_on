@@ -10,9 +10,10 @@ Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll)
 - [Train a CNN with MARCO data on Hyak](#train)
   - [Step 1: Get familiar with the convolutional neural network.](#step1)
   - [Step 2: Convert the training part into a python script file.](#step2)
-  - [Step 3: Train the CNN on Hyak interactive node.](#step3)
+  - [Step 3: Configure Marco1 Environment](#step3)
   - [Step 4: Train the CNN as a batch job on Hyak](#step4)
   - [Step 5: Evaluate the model](#step5)
+  - [Challenge: Train the CNN on Hyak interactive node.](#challenge)
 - [Submission](#submission)
 
 ## Background & Goals for this week's hands-on <a name="background"></a>
@@ -75,11 +76,15 @@ This is to create an environment named ‘envname’ with all the specified pyth
 
 To train the CNN on Hyak, you will need to copy the code from the jupyter notebook and put them into a python script file. The code up to the training part has been transferred to the python script file `marco.py` for you.
 
+**Here you need to transferred the evaluate part to a script file `evaluate.py` by yourself.**
+
 ### Step 3: Train the CNN on Hyak interactive node.<a name="step3"></a>
 
-a. Upload marcodata.tar.gz, marco.py to Hyak(should work under the directorynamed in your username under /gscratch/stf/ on Hyak)
+a. Upload marcodata.tar.gz, marco.py to Hyak(should work under the directory named in your username under /gscratch/scrubbed on Hyak)
 
-b. Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see afolder named marcodata
+**Scrubbed administrators clean the file that have not been modifiled within 21 days. So if you want to keep your file and result, remember to download them to your local machine in time.**
+
+b. Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see afolder named `marcodata`.
 
 c. Get an interactive node on hyak:
 
