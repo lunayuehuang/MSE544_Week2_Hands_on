@@ -11,8 +11,7 @@ Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll)
   - [Step 1: Get familiar with the convolutional neural network.](#step1)
   - [Step 2: Convert the training part into a python script file.](#step2)
   - [Step 3: Configure Marco1 Environment.](#step3)
-  - [Step 4: Train the CNN as a batch job on Hyak.](#step4)
-  - [Step 5: Evaluate the model.](#step5)
+  - [Step 4: Evaluate the model.](#step4)
   - [Challenge: Train the CNN on Hyak interactive node.](#challenge)
 - [Submission](#submission)
 
@@ -78,15 +77,17 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 **Here you need to transferred the evaluate part to a script file `evaluate.py` by yourself.**
 
-### Step 3: Train the CNN as a batch job on Hyak.<a name="step3"></a>
+### Step 3: Train the CNN as a batch job on Hyak.
 
-a. Upload `marcodata.tar.gz`, `marco.py`, `script_env` ,`script`,`evaluate.py` to Hyak(should work under the directory named in your username under /gscratch/scrubbed on Hyak)
+#### Before we start:
 
-**Scrubbed administrators clean the file that have not been modifiled within 21 days. So if you want to keep your file and result, remember to download them to your local machine in time.**
+- Upload `marcodata.tar.gz`, `marco.py`, `script_env` ,`script`,`evaluate.py` to Hyak.(should work under the directory named in your username under /gscratch/scrubbed on Hyak)
 
-b. Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see a folder named `marcodata`.
+- **Scrubbed administrators clean the file that have not been modifiled within 21 days. So if you want to keep your file and result, remember to download them to your local machine in time.**
 
-c. Configure the python environment on hyak.
+- Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see a folder named `marcodata`. 
+
+#### Step 3-1: Configure the python environment on hyak.<a name="step3-1"></a>
 
 **Option1: configure the python environment as a batch job.**
 
@@ -112,7 +113,7 @@ c. Configure the python environment on hyak.
 
 
 
-### Step 4: Train the CNN as a batch job on Hyak.<a name="step4"></a>
+### Step 3-2: Train the CNN as a batch job on Hyak.<a name="step3-2"></a>
 
 Now you have your python code, the python environment and the data you need. Now you can start your training .
 
@@ -147,7 +148,7 @@ d.The CNN model your constructed in marco.py will be saved under the folder `/mo
 
 Additional resource about node setting: https://hyak.uw.edu/docs/compute/scheduling-jobs
 
-### Step 5: Evaluate the model.<a name="step5"></a>
+### Step 4: Evaluate the model.<a name="step4"></a>
 
 The final step is to evaluate the accuracy of the model you obtained from previous training steps. 
   
@@ -188,7 +189,7 @@ Here are 2 options for you to run the python script:
 - Option2: `nohup python3 marco.py > output &`
   - This will run python script in the background, which allow you to work on any other new command while the script is running.
   
-e.You will find the model and weights following same way in step4.e . The output information will be saved in a file named output.
+e.You will find the model and weights following same way in **step4.e** . The output information will be saved in a file named output.
 
 ## Submission. <a name="submission"></a>
 
