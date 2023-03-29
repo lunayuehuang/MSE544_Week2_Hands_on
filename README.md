@@ -153,7 +153,7 @@ The final step is to evaluate the accuracy of the model you obtained from previo
   
 It takes 2 scripts to complete this setp. The first script that you need is the `evaluate.py` that you created yourself. The second script requires you to create your own `script_evaluate`. It's very similar to `script`,just a few things need to be changed.
 
-Then submit it as batch job. 
+**Then submit it as batch job.** 
   
 Note that the df_test is the test dataset you prepared earlier along with the train and validation dataset, you should make sure this dataset can be correctly loaded when you evaluate the model.
 
@@ -194,7 +194,7 @@ e.You will find the model and weights following same way in step4.e . The output
 
 Please submit:
   
-a. Your python script. (including `evaluate.py` and `script_evaluate`)
+a. Your python scripts. (including `evaluate.py` and `script_evaluate`)
   
 b. 2 output files. (One for the training, one for the evaluate)
   - it should be the output from your python code, not the slurm.out
