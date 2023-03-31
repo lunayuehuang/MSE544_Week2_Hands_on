@@ -1,0 +1,21 @@
+#!/bin/bash
+
+##Create Environment as a batch job
+
+#SBATCH --job-name=create_env
+
+#SBATCH --account=stf
+#SBATCH --partition=ckpt
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=40
+#SBATCH --time=1:00:00
+
+#SBATCH --mem=170G
+#SBATCH --export=all
+
+module load foster/python/miniconda/3.8
+conda create -n marco1 keras tensorflow scikit-learn pandas pillow
+conda init bash
+exec bash
+
