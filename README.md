@@ -12,7 +12,6 @@ Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll)
   - [Step 2: Convert the training part into a python script file.](#step2)
   - [Step 3: Configure Marco1 Environment.](#step3)
   - [Step 4: Evaluate the model.](#step4)
-  - [Challenge: Train the CNN on Hyak interactive node.](#challenge)
 - [Submission](#submission)
 
 ## Background & Goals for this week's hands-on <a name="background"></a>
@@ -52,7 +51,9 @@ Please download: `crystal_image_processing.ipynb`, `marcodata.tar.gz`, `marco.py
 
 The python code is given in the jupyter notebook: `crystal_image_processing.ipynb`. Download it and read the code in it to get familiar with the code.
 
-Download the compressed MARCO dataset `marcodata.tar.gz` from canvas, unzip it. You will see a folder named `marcodata`,with each subfolder under it contains the images for each category.
+**If you have not taken CHEM 441, CHEM 541, MSE 477, or MSE 542 before, please run through this Jupyter notebook by yourself first.**
+
+Download the compressed MARCO dataset `marcodata.tar.gz` from canvas, unzip it in your local computer. You will see a folder named `marcodata`,with each subfolder under it contains the images for each category.
 
 #### Optional：
 
@@ -77,33 +78,50 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 **Here you need to transferred the evaluate part to a script file `evaluate.py` by yourself.**
 
-### Step 3: Train the CNN as a batch job on Hyak.
+### Step 3: Train the CNN as a batch job on Hyak.<a name="step3"></a>
 
 #### Before we start:
 
-- Upload `marcodata.tar.gz`, `marco.py`, `script_env` ,`script`,`evaluate.py` to Hyak.(should work under the directory named in your username under /gscratch/scrubbed on Hyak)
+- Create your own folder under **/gscratch/scrubbed/[Youruwnetid]** on Hyak.
+  - Change Youruwnetid to your own uw-net-id.
+- Upload `marco.py`, `script_env` ,`script`,`evaluate.py` to your folder on Hyak.
 
-- **Scrubbed administrators clean the file that have not been modifiled within 21 days. So if you want to keep your file and result, remember to download them to your local machine in time.**
+- **Scrubbed administrators will scrub files that have not been modified within 21 days. To avoid losing your files and results, make sure to download them to your local machine before this time period ends.**
 
-- Unzip the marcodata with command: `tar -xf ./marcodata.tar.gz`, you will see a folder named `marcodata`. 
+- Use the following command to get the `marcodata.tar.gz` file to your own folder.
+  - Change Youruwnetid to your own uw-net-id.
+ 
+`cp /mmfs1/gscratch/stf/ziyuz/week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
+  
 
-#### Step 3-1: Configure the python environment on hyak.<a name="step3-1"></a>
+- Unzip the marcodata using the command: `tar -xf ./marcodata.tar.gz`, Make sure you're in the same directory as the `marcodata.tar.gz` before unzipping. After unzipping, you will see a folder named `marcodata`. 
 
-**Option1: configure the python environment as a batch job.**
+#### Step 3-1: Configure the python environment on hyak.
 
+you will need to use the slurm script `script_env` to confirgure your python environment as a batch job. The following image provides detailed information on `script_env` and the corresponding code it represents.
+
+<img src="./image/Batch_Script.png" style="height: 90%; width: 90%;"/>
+
+You can now submit your job using this command:
 - `sbatch script_env`
-   - submit the configure environment job.
-- `squeue -u yourusername`
-  - Check the job in the queue.
 
-**Option2: Manual configure the python environment.**
+If you want to check the status of your job in the queue, use the following command:  
+- `squeue -u yourusername`
+  - Change yourusername to your own user name
+
+For more detail, read the Batch job section of this web page:
+https://hyak.uw.edu/docs/compute/scheduling-jobs/
+
+**Optional: Manual configure the python environment.**
+
+**(Once you have completed the hands-on tutorial, you can try creating your own environment using this method.)** 
 
 - `srun -p compute -A stf --nodes=1 --ntasks-per-node=40 --time=2:00:00 --mem=100G --pty/bin/bash`
   - You can use command to get an interactive node on hyak:
 - `module load foster/python/miniconda/3.8`
   - This is to load the preinstalled anaconda on Hyak.
-- `conda create -n marco1 keras tensorflow scikit-learn pandas pillow`
-  - This is to create a python environment named marco1 with all needed python packages installed.
+- `conda create -n myenv keras tensorflow scikit-learn pandas pillow`
+  - This is to create a python environment named `myenv` with all needed python packages installed. 
 - `conda init bash`
   - You will need to initiate conda if this is your first time using it on Hyak.
 - `exec bash`
@@ -111,13 +129,14 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 - Press `ctrl + D`
   - Exit the current interactive session
 
+For more detail, read this web page:
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-from-file
 
-
-### Step 3-2: Train the CNN as a batch job on Hyak.<a name="step3-2"></a>
+#### Step 3-2: Train the CNN as a batch job on Hyak.
 
 Now you have your python code, the python environment and the data you need. Now you can start your training .
 
-a. Change the parameter for the slrum script:
+#### a. Change the parameter for the slrum script:
 
 - Make sure in your current working directory, there is your `marco.py` and the folder named `marcodata`.
 
@@ -127,9 +146,19 @@ a. Change the parameter for the slrum script:
   - You may also need to set the ‘time=’ to a value in according to the number of epochs you specified to run in your marco.py.
 - (Hint: Use `vi` command)
 
-b.Submit with the command:
+#### b.Submit with the command:
 
 - `sbatch script`
+
+#### c. Check your submitted job in the queue:
+  
+- `squeue -u yourusername`
+
+#### d. Get your output.
+  
+The CNN model your constructed in marco.py will be saved under the folder `/models` in your current working directory, named `marco.h5`. As the training process going on, you can find the weights of your models saved under the same folder as well. They are named as `marco+number of epoch+validation accuracy+’.hdf5`
+
+Additional resource about node setting: https://hyak.uw.edu/docs/compute/scheduling-jobs
 
 **Troubleshooting:**
 
@@ -139,14 +168,6 @@ Traceback (most recent call last):
 File "marco.py", line 1, in <module>
 from tensorflow.keras.callbacks import ReduceLROnPlateau,ModelCheckpoint
 ModuleNotFoundError: No module named 'tensorflow'
-  
-c. Check your submitted job in the queue:
-- `squeue -u yourusername`
-  - Change yourusername to your own user name
-
-d.The CNN model your constructed in marco.py will be saved under the folder `/models` in your current working directory, named `marco.h5`. As the training process going on, you can find the weights of your models saved under the same folder as well. They are named as `marco+number of epoch+validation accuracy+’.hdf5`
-
-Additional resource about node setting: https://hyak.uw.edu/docs/compute/scheduling-jobs
 
 ### Step 4: Evaluate the model.<a name="step4"></a>
 
@@ -157,39 +178,6 @@ It takes 2 scripts to complete this setp. The first script that you need is the 
 **Then submit it as batch job.** 
   
 Note that the df_test is the test dataset you prepared earlier along with the train and validation dataset, you should make sure this dataset can be correctly loaded when you evaluate the model.
-
-### Challenge: Train the CNN on Hyak interactive node.<a name="challenge"></a>
-
-The challenge was to manually train CNN using the interactive node. Completing this challenge will give you a better understanding of the batch job logic. 
-  
-a. Get an interactive node on hyak:
-
-You can use command:
-- `srun -p compute -A stf --nodes=1 --ntasks-per-node=40 --time=2:00:00 --mem=100G --pty/bin/bash`
-
-The above command will allocate a node from the stf partition.
-  
-Alternatively, you can use command:
-- `srun -p ckpt -A stf --nodes=1 --ntasks-per-node=4 --time=2:00:00 --mem=100G --pty /bin/bash`
-
-This allows you to use idle resources from other groups across the cluster using the checkpoint partition.
-
-b. Set the number of threads can be run at same time:
-- `export OMP_NUM_THREADS=4` 
-
-c. Activate the environment you created.
-- `conda activate marco1`
-
-d. run the python script.
-First make sure in your current working directory, there is your marco.py and the folder named marcodata.
-
-Here are 2 options for you to run the python script:
-- Option1: `python3 marco.py > output`
-  - The output from training process will be saved in the file named `output`.
-- Option2: `nohup python3 marco.py > output &`
-  - This will run python script in the background, which allow you to work on any other new command while the script is running.
-  
-e.You will find the model and weights following same way in **step4.e** . The output information will be saved in a file named output.
 
 ## Submission. <a name="submission"></a>
 
