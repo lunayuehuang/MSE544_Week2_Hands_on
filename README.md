@@ -118,7 +118,7 @@ https://hyak.uw.edu/docs/compute/scheduling-jobs/
 
 **(Once you have completed the hands-on tutorial, you can try creating your own environment using this method.)** 
 
-- `srun -p compute -A stf --nodes=1 --ntasks-per-node=40 --time=2:00:00 --mem=100G --pty/bin/bash`
+- `srun -p compute -A stf --nodes=1 --ntasks-per-node=40 --time=2:00:00 --mem=100G --pty /bin/bash`
   - You can use command to get an interactive node on hyak:
 - `module load foster/python/miniconda/3.8`
   - This is to load the preinstalled anaconda on Hyak.
