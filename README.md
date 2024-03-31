@@ -169,14 +169,14 @@ When run it as batch job, if in the slurm output you see error:
 
 Traceback (most recent call last):
 File "marco.py", line 1, in <module>
-from tensorflow.keras.callbacks import ReduceLROnPlateau,ModelCheckpoint
+from tensorflow.keras.callbacks import ReduceLROnPlateau, ModelCheckpoint
 ModuleNotFoundError: No module named 'tensorflow'
 
 ### Step 4: Evaluate the model.<a name="step4"></a>
 
 The final step is to evaluate the accuracy of the model you obtained from previous training steps. 
   
-It takes 2 scripts to complete this setp. The first script that you need is the `evaluate.py` that you created yourself. The second script requires you to create your own `script_evaluate`. It's very similar to `script`,just a few things need to be changed.
+It takes 2 scripts to complete this setp. The first script that you need is the `evaluate.py` that you created yourself. The second script requires you to create your own `script_evaluate`. It's very similar to `script`, just a few things need to be changed.
 
 **Then submit it as batch job.** 
   
