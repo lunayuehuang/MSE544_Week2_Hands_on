@@ -62,7 +62,8 @@ You can run the notebook locally to get more familiar with the code. **The train
 ##### Note for setting up python environment on your local machine to run the notebook:
 
 1. Make sure your have `anacond` or `miniconda` installed first.
-https://conda.io/projects/conda/en/latest/user-guide/install/index.html. 
+
+https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 2. Then create a virtual environment by command:
 
