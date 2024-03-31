@@ -77,7 +77,7 @@ This is to create an environment named ‘envname’ with all the specified pyth
 
 To train the CNN on Hyak, you will need to copy the code from the jupyter notebook and put them into a python script file. The code up to the training part has been transferred to the python script file `marco.py` for you.
 
-**Here you need to transferred the evaluate part to a script file `evaluate.py` by yourself.**
+**Here you need to transfer the evaluate part to a script file `evaluate.py` by yourself.**
 
 **Hint: Remember to load the python packages, change the directory, load the test dataset(df_test) in the correct data type (string), and define corresponding parameters.**
 
