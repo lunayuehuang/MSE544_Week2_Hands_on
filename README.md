@@ -79,7 +79,7 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 **Here you need to transferred the evaluate part to a script file `evaluate.py` by yourself.**
 
-Hint: Remember to load the python packages, change the directory, and load the test dataset(df_test) in the correct data type (string).
+**Hint: Remember to load the python packages, change the directory, load the test dataset(df_test) in the correct data type (string), and define corresponding parameters.**
 
 ### Step 3: Train the CNN as a batch job on Hyak.<a name="step3"></a>
 
