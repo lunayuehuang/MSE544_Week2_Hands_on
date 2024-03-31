@@ -94,7 +94,7 @@ Hint: Remember to load the python packages, change the directory, and load the t
 - Use the following command to get the `marcodata.tar.gz` file to your own folder.
   - Change Youruwnetid to your own uw-net-id.
  
-`cp /mmfs1/gscratch/stf/ziyuz/week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
+`cp /mmfs1/gscratch/stf/kcxie/week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
   
 
 - Unzip the marcodata using the command: `tar -xf ./marcodata.tar.gz`, Make sure you're in the same directory as the `marcodata.tar.gz` before unzipping. After unzipping, you will see a folder named `marcodata`. 
