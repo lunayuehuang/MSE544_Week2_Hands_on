@@ -1,0 +1,5 @@
+marcodata/
+*.ipynb
+marcodata.tar.gz
+script/
+script_env
