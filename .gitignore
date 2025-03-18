@@ -4,3 +4,8 @@ marcodata.tar.gz
 script
 script_env
 .DS_Store
+model/
+MSE544_week2/
+evaluate.py
+marco.py
+testdata.csv

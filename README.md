@@ -61,17 +61,17 @@ You can run the notebook locally to get more familiar with the code. **The train
 
 ##### Note for setting up python environment on your local machine to run the notebook:
 
-1. Make sure your have `anacond` or `miniconda` installed first.
+1. Make sure your have `anaconda` or `miniconda` installed first.
 
 https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 2. Then create a virtual environment by command:
 
-`conda create -n envname keras tensorflow scikit-learn pandas pillow scikit-image`
-
-`conda install -c conda-forge scikit-image`
+`conda create -n envname keras tensorflow scikit-learn pandas pillow scikit-image matplotlib`
 
 This is to create an environment named ‘envname’ with all the specified python packages installed. Activate the environment by command:  `conda activate envname.` Then you should be ready to work with your notebook in this environment.
+
+If you try to run the notebook locally on your machine, you need to select the kernel corresponding to the virtual environment you just created. When executing the first cell, you might be asked to install ipykernel; if so, accept the prompt. 
 
 ### Step 2: Convert the training part into a python script file.<a name="step2"></a>
 

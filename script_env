@@ -4,7 +4,7 @@
 
 #SBATCH --job-name=create_env
 
-#SBATCH --account=stf
+#SBATCH --account=microncapstone
 #SBATCH --partition=ckpt
 
 #SBATCH --nodes=1
