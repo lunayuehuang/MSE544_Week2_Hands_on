@@ -90,7 +90,7 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 - Create your own folder under **/gscratch/scrubbed/[Youruwnetid]** on Hyak.
   - Change Youruwnetid to your own uw-net-id.
-- Upload `marco.py`, `script_env` ,`script`,`evaluate.py` to your folder on Hyak.
+- Upload `marco.py`, `script_env` ,`script`,`evaluate.py` to your folder on Hyak. Recommended: Use cp /gscratch/scrubbed/MSE544_week2/* . to avoid long download and upload times.
 
 - **Scrubbed administrators will scrub files that have not been modified within 21 days. To avoid losing your files and results, make sure to download them to your local machine before this time period ends.**
 
