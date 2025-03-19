@@ -97,7 +97,7 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 - Use the following command to get the `marcodata.tar.gz` file to your own folder.
   - Change Youruwnetid to your own uw-net-id.
  
-`cp /gscratch/scrubbed/MSE544_week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
+`cp /mmfs1/home/yshuang/gscratch/scrubbed/MSE544_week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
   
 
 - Unzip the marcodata using the command: `tar -xf ./marcodata.tar.gz`, Make sure you're in the same directory as the `marcodata.tar.gz` before unzipping. After unzipping, you will see a folder named `marcodata`. 
