@@ -26,7 +26,7 @@ category has 5000 images).
 
 You can learn what is CNN and MARCO from the fall quarter lecture in the [canvas page](https://canvas.uw.edu/courses/1800162/pages/week-2-using-hpc?module_item_id=23168571).
 
-https://canvas.uw.edu/courses/1631767/pages/week-2-using-hpc-and-github
+[https://canvas.uw.edu/courses/1631767/pages/week-2-using-hpc-and-github](https://canvas.uw.edu/courses/1800162/pages/week-2-using-hpc?module_item_id=23168571)
 
 Additional resource: 
 
