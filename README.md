@@ -67,7 +67,7 @@ https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 2. Then create a virtual environment by command:
 
-`conda create -n envname -y` \
+`conda create -n envname python=3.10 -y` \
 Creates a new Conda environment named ‘envname‘. \
 `conda activate envname` \
 Activates the newly created Conda environment. \
