@@ -72,7 +72,7 @@ Creates a new Conda environment named ‘envname‘. \
 `conda activate envname` \
 Activates the newly created Conda environment. \
 `pip install keras tensorflow scikit-learn pandas pillow scikit-image matplotlib` \
-Installs the required Python packages using pip. \
+Installs the required Python packages using pip.
 
 If you try to run the notebook locally on your machine, you need to select the kernel corresponding to the virtual environment you just created. When executing the first cell, you might be asked to install ipykernel; if so, accept the prompt. 
 
