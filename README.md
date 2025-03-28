@@ -167,7 +167,12 @@ Now you have your python code, the python environment and the data you need. Now
   
 - `squeue -u yourusername`
 
-#### d. Get your output.
+#### d. Check job running output:
+
+- `tail -f output`
+- Use `ctrl + C` to exit
+
+#### e. Get your output.
   
 The CNN model your constructed in marco.py will be saved under the folder `/models` in your current working directory, named `marco.h5`. As the training process going on, you can find the weights of your models saved under the same folder as well. They are named as `MARCO.number of epoch-validation accuracy.hdf5`
 
