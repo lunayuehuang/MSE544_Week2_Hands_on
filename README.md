@@ -116,6 +116,11 @@ You can now submit your job using this command:
 If you want to check the status of your job in the queue, use the following command:  
 - `squeue -u yourusername`
   - Change yourusername to your own user name
+  - This command will show your job’s JOBID, which you’ll need to check the output.
+
+To check the output of your job:
+- `cat slurm-xxxxx.out`
+  - Replace xxxxx with your actual JOBID found using squeue. 
 
 For more detail, read the Batch job section of this web page:
 https://hyak.uw.edu/docs/compute/scheduling-jobs/
