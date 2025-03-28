@@ -2,7 +2,7 @@
 
 ## Hands-on 2: Train a convolutional neural network (CNN) with MARCO data on Hyak
 
-Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll)
+Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll) & Luna Yue Huang & Thomas Huang & Henry J. Stirrat
 
 ### Table of Content
 
