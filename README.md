@@ -108,7 +108,7 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 you will need to use the slurm script `script_env` to confirgure your python environment as a batch job. The following image provides detailed information on `script_env` and the corresponding code it represents.
 
-<img src="./image/Batch_Script.png" style="height: 90%; width: 90%;"/>
+<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
 
 You can now submit your job using this command:
 - `sbatch script_env`
