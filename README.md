@@ -2,7 +2,7 @@
 
 ## Hands-on 2: Train a convolutional neural network (CNN) with MARCO data on Hyak
 
-Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll)
+Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll) & Luna Yue Huang & Thomas Huang & Henry J. Stirrat
 
 ### Table of Content
 
@@ -24,9 +24,9 @@ MARCO is a dataset of protein crystal images, with four categories: Clear, Cryst
 Precipitate. In this session we will use only a subset of it, with 20000 images (each
 category has 5000 images).
 
-You can learn what is CNN and MARCO from the fall quarter lecture in the [canvas page](https://canvas.uw.edu/courses/1631767/pages/week-2-using-hpc-and-github).
+You can learn what is CNN and MARCO from the fall quarter lecture in the [canvas page](https://canvas.uw.edu/courses/1800162/pages/week-2-using-hpc?module_item_id=23168571).
 
-https://canvas.uw.edu/courses/1631767/pages/week-2-using-hpc-and-github
+[https://canvas.uw.edu/courses/1631767/pages/week-2-using-hpc-and-github](https://canvas.uw.edu/courses/1800162/pages/week-2-using-hpc?module_item_id=23168571)
 
 Additional resource: 
 
@@ -67,9 +67,12 @@ https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 2. Then create a virtual environment by command:
 
-`conda create -n envname keras tensorflow scikit-learn pandas pillow scikit-image matplotlib`
-
-This is to create an environment named ‘envname’ with all the specified python packages installed. Activate the environment by command:  `conda activate envname.` Then you should be ready to work with your notebook in this environment.
+`conda create -n envname python=3.10 -y` \
+Creates a new Conda environment named ‘envname‘. \
+`conda activate envname` \
+Activates the newly created Conda environment. \
+`pip install keras tensorflow scikit-learn pandas pillow scikit-image matplotlib jupyter` \
+Installs the required Python packages using pip.
 
 If you try to run the notebook locally on your machine, you need to select the kernel corresponding to the virtual environment you just created. When executing the first cell, you might be asked to install ipykernel; if so, accept the prompt. 
 
@@ -87,23 +90,25 @@ To train the CNN on Hyak, you will need to copy the code from the jupyter notebo
 
 - Create your own folder under **/gscratch/scrubbed/[Youruwnetid]** on Hyak.
   - Change Youruwnetid to your own uw-net-id.
-- Upload `marco.py`, `script_env` ,`script`,`evaluate.py` to your folder on Hyak.
+- Copy the following files `marco.py`, `script_env` ,`script`,`evaluate.py`, `marcodata.tar.gz` from `/mmfs1/home/yshuang/gscratch/stf/yshuang/week2` to your folder on Hyak.
 
-- **Scrubbed administrators will scrub files that have not been modified within 21 days. To avoid losing your files and results, make sure to download them to your local machine before this time period ends.**
+`cp /mmfs1/home/yshuang/gscratch/stf/yshuang/week2/script /gscratch/scrubbed/[Youruwnetid]/` 
 
-- Use the following command to get the `marcodata.tar.gz` file to your own folder.
-  - Change Youruwnetid to your own uw-net-id.
- 
-`cp /mmfs1/gscratch/stf/kcxie/week2/marcodata.tar.gz  /mmfs1/gscratch/scrubbed/[Youruwnetid]/marcodata.tar.gz`
-  
+`cp /mmfs1/home/yshuang/gscratch/stf/yshuang/week2/script_env /gscratch/scrubbed/[Youruwnetid]/`
+
+`cp /mmfs1/home/yshuang/gscratch/stf/yshuang/week2/marco.py /gscratch/scrubbed/[Youruwnetid]/`
+
+`cp /mmfs1/home/yshuang/gscratch/stf/yshuang/week2/marcodata.tar.gz /gscratch/scrubbed/[Youruwnetid]/`
 
 - Unzip the marcodata using the command: `tar -xf ./marcodata.tar.gz`, Make sure you're in the same directory as the `marcodata.tar.gz` before unzipping. After unzipping, you will see a folder named `marcodata`. 
+
+- **Scrubbed administrators will scrub files that have not been modified within 21 days. To avoid losing your files and results, make sure to download them to your local machine before this time period ends.**
 
 #### Step 3-1: Configure the python environment on hyak.
 
 you will need to use the slurm script `script_env` to confirgure your python environment as a batch job. The following image provides detailed information on `script_env` and the corresponding code it represents.
 
-<img src="./image/Batch_Script.png" style="height: 90%; width: 90%;"/>
+<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
 
 You can now submit your job using this command:
 - `sbatch script_env`
@@ -111,6 +116,11 @@ You can now submit your job using this command:
 If you want to check the status of your job in the queue, use the following command:  
 - `squeue -u yourusername`
   - Change yourusername to your own user name
+  - This command will show your job’s JOBID, which you’ll need to check the output.
+
+To check the output of your job:
+- `cat slurm-xxxxx.out`
+  - Replace xxxxx with your actual JOBID found using squeue. 
 
 For more detail, read the Batch job section of this web page:
 https://hyak.uw.edu/docs/compute/scheduling-jobs/
@@ -123,7 +133,7 @@ https://hyak.uw.edu/docs/compute/scheduling-jobs/
   - You can use command to get an interactive node on hyak:
 - `module load foster/python/miniconda/3.8`
   - This is to load the preinstalled anaconda on Hyak.
-- `conda create -n myenv keras tensorflow scikit-learn pandas pillow`
+- `conda create -n myenv python=3.8 tensorflow=2.10 keras scikit-learn pandas pillow --force -y`
   - This is to create a python environment named `myenv` with all needed python packages installed. 
 - `conda init bash`
   - You will need to initiate conda if this is your first time using it on Hyak.
@@ -157,7 +167,12 @@ Now you have your python code, the python environment and the data you need. Now
   
 - `squeue -u yourusername`
 
-#### d. Get your output.
+#### d. Check job running output:
+
+- `tail -f output`
+- Use `ctrl + C` to exit
+
+#### e. Get your output.
   
 The CNN model your constructed in marco.py will be saved under the folder `/models` in your current working directory, named `marco.h5`. As the training process going on, you can find the weights of your models saved under the same folder as well. They are named as `MARCO.number of epoch-validation accuracy.hdf5`
 
