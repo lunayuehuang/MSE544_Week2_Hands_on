@@ -143,24 +143,24 @@ https://hyak.uw.edu/docs/compute/scheduling-jobs/
 - Press `ctrl + D`
   - Exit the current interactive session
 
-For more detail, read this web page:
+For more details, read this web page:
 https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-from-file
 
 #### Step 3-2: Train the CNN as a batch job on Hyak.
-You will need to use another script file to define how you would run your job on Hayk using batch submission, 
-Open the script file that you downloaded from TA's directory, which looks like this:
-<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
-** Make sure you change the directory for the chdir where you set the folder to your own directory where save your script, python file, and data.** 
+
 
 Now you have your python code, the python environment and the data you need. Now you can start your training .
 
 #### a. Change the parameter for the slrum script:
+You will need to use another script file to define how you would run your job on Hayk using batch submission, 
+Open the `script` file that you downloaded from TA's directory, which looks like this:
+<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
 
 - Make sure in your current working directory, there is your `marco.py` and the folder named `marcodata`.
 
 - Prepare the slurm script in this current directory (download the script from canvas first). 
   - Read the script to get familiar with it.
-  - Replace the ‘chdir=’ in the script with the path of this directory. 
+  - Replace the ‘chdir=’ in the script with the path of your current directory where you save the submission script, data, and Python file. 
   - You may also need to set the ‘time=’ to a value in according to the number of epochs you specified to run in your marco.py.
 - (Hint: Use `vi` command)
 
