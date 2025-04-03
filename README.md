@@ -109,7 +109,7 @@ To train the CNN on Hyak, you will need to copy the code from the Jupyter notebo
 
 you will need to use the slurm script `script_env` to confirgure your python environment as a batch job. The following image provides detailed information on `script_env` and the corresponding code it represents.
 
-<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
+<img src="./image/Batch_Script.png" style="height: 90%; width: 90%;"/>
 
 You can now submit your job using this command:
 - `sbatch script_env`
@@ -147,6 +147,10 @@ For more detail, read this web page:
 https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-from-file
 
 #### Step 3-2: Train the CNN as a batch job on Hyak.
+You will need to use another script file to define how you would run your job on Hayk using batch submission, 
+Open the script file that you downloaded from TA's directory, which looks like this:
+<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
+** Make sure you change the directory for the chdir where you set the folder to your own directory where save your script, python file, and data.** 
 
 Now you have your python code, the python environment and the data you need. Now you can start your training .
 
