@@ -2,7 +2,8 @@
 
 ## Hands-on 2: Train a convolutional neural network (CNN) with MARCO data on Hyak
 
-Authors: Ting Cao & [Ziyu Zhang](https://github.com/Ilxxll) & Luna Yue Huang & Thomas Huang & Henry J. Stirrat
+Authors: Ting Cao & [Ziyu Zhang] 
+Updated in 2025 by Luna Yue Huang & Thomas Huang & Henry J. Stirrat
 
 ### Table of Content
 
@@ -59,7 +60,7 @@ Download the compressed MARCO dataset `marcodata.tar.gz` from canvas, unzip it i
 
 You can run the notebook locally to get more familiar with the code. **The training process may take very long time if you run it on your local computer.**
 
-##### Note for setting up python environment on your local machine to run the notebook:
+##### Note for setting up Python environment on your local machine to run the notebook:
 
 1. Make sure your have `anaconda` or `miniconda` installed first.
 
@@ -76,21 +77,21 @@ Installs the required Python packages using pip.
 
 If you try to run the notebook locally on your machine, you need to select the kernel corresponding to the virtual environment you just created. When executing the first cell, you might be asked to install ipykernel; if so, accept the prompt. 
 
-### Step 2: Convert the training part into a python script file.<a name="step2"></a>
+### Step 2: Convert the training part into a Python script file.<a name="step2"></a>
 
-To train the CNN on Hyak, you will need to copy the code from the jupyter notebook and put them into a python script file. The code up to the training part has been transferred to the python script file `marco.py` for you.
+To train the CNN on Hyak, you will need to copy the code from the Jupyter notebook and put it into a python script file. The code up to the training part has been transferred to the python script file `marco.py` for you.
 
-**Here you need to transfer the evaluate part to a script file `evaluate.py` by yourself.**
+**Here, you need to transfer the evaluate part to a script file `evaluate.py` by yourself.**
 
-**Hint: Remember to load the python packages, change the directory, load the test dataset(df_test) in the correct data type (string), and define corresponding parameters.**
+**Hint: Remember to load the Python packages, change the directory, load the test dataset(df_test) in the correct data type (string), and define corresponding parameters.**
 
 ### Step 3: Train the CNN as a batch job on Hyak.<a name="step3"></a>
 
 #### Before we start:
 
 - Create your own folder under **/gscratch/scrubbed/[Youruwnetid]** on Hyak.
-  - Change Youruwnetid to your own uw-net-id.
-- Copy the following files `marco.py`, `script_env` ,`script`,`evaluate.py`, `marcodata.tar.gz` from `/mmfs1/home/yshuang/gscratch/stf/yshuang/week2` to your folder on Hyak.
+  - Change [Youruwnetid] to your own uw-net-id.
+- Copy the following files `marco.py`, `script_env` ,`script`,`evaluate.py`, `marcodata.tar.gz` from `/mmfs1/home/yshuang/gscratch/stf/yshuang/week2` to your folder on Hyak. ** Be aware there are several files needed to be modify before you can run it on Hyak**
 
 `cp /mmfs1/home/yshuang/gscratch/stf/yshuang/week2/script /gscratch/scrubbed/[Youruwnetid]/` 
 
@@ -122,10 +123,10 @@ To check the output of your job:
 - `cat slurm-xxxxx.out`
   - Replace xxxxx with your actual JOBID found using squeue. 
 
-For more detail, read the Batch job section of this web page:
+For more details, read the Batch job section of this web page:
 https://hyak.uw.edu/docs/compute/scheduling-jobs/
 
-**Optional: Manual configure the python environment.**
+**Optional: Manually configure the Python environment.**
 
 **(Once you have completed the hands-on tutorial, you can try creating your own environment using this method.)** 
 
