@@ -134,8 +134,8 @@ https://hyak.uw.edu/docs/compute/scheduling-jobs/
   - You can use command to get an interactive node on hyak.
 - `module load foster/python/miniconda/3.8`
   - This is to load the preinstalled anaconda on Hyak.
-- `conda create -n myenv python=3.8 tensorflow=2.10 keras scikit-learn pandas pillow --force -y`
-  - This is to create a python environment named `myenv` with all needed python packages installed. 
+- `conda create --prefix /gscratch/stf/[Youruwnetid]/marco3 python=3.8 tensorflow=2.10 keras scikit-learn pandas pillow --force -y`
+  - This creates a Python environment at the specified path /gscratch/stf/yourusername/marco3. All required Python packages are installed, and the environment is fully stored in gscratch to avoid home directory quota issues.
 - `conda init bash`
   - You will need to initiate conda if this is your first time using it on Hyak.
 - `exec bash`
