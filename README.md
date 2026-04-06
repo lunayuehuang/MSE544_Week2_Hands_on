@@ -109,7 +109,7 @@ To train the CNN on Hyak, you will need to copy the code from the Jupyter notebo
 
 you will need to use the slurm script `script_env` to confirgure your python environment as a batch job. The following image provides detailed information on `script_env` and the corresponding code it represents.
 
-<img src="./image/Batch_Script.png" style="height: 90%; width: 90%;"/>
+<img src="./image/Batch_1_2026.png" style="height: 90%; width: 90%;"/>
 
 You can now submit your job using this command:
 - `sbatch script_env`
@@ -154,7 +154,7 @@ Now you have your python code, the python environment and the data you need. Now
 #### a. Change the parameter for the slrum script:
 You will need to use another script file to define how you would run your job on Hayk using batch submission, 
 Open the `script` file that you downloaded from TA's directory, which looks like this:
-<img src="./image/Batch_Script_new.png" style="height: 90%; width: 90%;"/>
+<img src="./image/Batch_2_2026.png" style="height: 90%; width: 90%;"/>
 
 - Make sure in your current working directory, there is your `marco.py` and the folder named `marcodata`.
 
